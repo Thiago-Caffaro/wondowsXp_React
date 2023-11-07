@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+    margin:0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    background-color: #d8d0c4;
+    color: white;
+    text-align: center;
+}
+.box{
+    width: 353px;
+    height: 250px;
+    margin: auto;
+}
+.box>div>a>img{
+    margin-top: 15px;
+    background-color: white;
+    width: 40px;
+    padding: 10px;
+}
+.box>div{
+    width: 112px;
+    height: 112px;
+    display: inline-block;
+}
+.box>div:hover{
+    background-color: rgba(104, 104, 104, 0.411);
+}
+p, a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: rgb(117, 117, 121);
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 8%;
+    height: 90px;
+    margin-bottom: 50px;
+}
+#logoImg{
+    height: 100px;
+}
+#barra_input{
+    margin: auto;
+    background-color: white;
+    width: 600px;
+    height: 45px;
+    margin-bottom: 40px;
+    text-indent: 50px;
+    font-size: 16px;
+}
+#lupa{
+    height: 20px;
+    width: 14px;
+    display: inline-block;
+    position: absolute;
+    margin-left: 18px;
+    margin-top: 16px;
+}
