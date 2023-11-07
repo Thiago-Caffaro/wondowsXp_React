@@ -141,7 +141,7 @@ const App = () => {
     ;
 
     var pcContent = 
-      <iframe src='/index.html'></iframe>
+      <iframe src='/wondowsXp_React/index.html'></iframe>
     ;
 
     var cmdContent = 
@@ -151,16 +151,16 @@ const App = () => {
     var folderContent = 
     <div id='content'>
       <div id='topFolderBar'>
-        <img src='/images/top.png'></img>
+        <img src='/wondowsXp_React/images/top.png'></img>
       </div>
       <div id='sideFolderBar'>
-        <img src='/images/side.png'></img>
+        <img src='/wondowsXp_React/images/side.png'></img>
       </div>
       <div id='bloco'>
-      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/images/icons/internet-explorer-8.png">
+      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
         Internet Explorer
       </NewProgIcon>
-      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/images/icons/internet-explorer-8.png">
+      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
         Internet Explorer
       </NewProgIcon>
       </div>
@@ -190,22 +190,22 @@ const App = () => {
   return (
     <div id="wondos_vista">
       <div id="desktop">
-        <NewProgIcon id="explorer" imgSrc="/images/icons/internet-explorer-8.png">
+        <NewProgIcon id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
           OutsideNet Searcher
         </NewProgIcon>
-        <NewProgIcon id="pc" imgSrc="/images/icons/pc.png">
+        <NewProgIcon id="pc" imgSrc="/wondowsXp_React/images/icons/pc.png">
           Pc
         </NewProgIcon>
-        <NewProgIcon id="cmd" imgSrc="/images/icons/cmd.png">
+        <NewProgIcon id="cmd" imgSrc="/wondowsXp_React/images/icons/cmd.png">
           CMD
         </NewProgIcon>
-        <NewProgIcon id="folder" imgSrc="/images/icons/folder.png">
+        <NewProgIcon id="folder" imgSrc="/wondowsXp_React/images/icons/folder.png">
           Pasta teste
         </NewProgIcon>
-        <NewProgIcon id="notePad0" imgSrc="/images/icons/notePad.png">
+        <NewProgIcon id="notePad0" imgSrc="/wondowsXp_React/images/icons/notePad.png">
           Anotação teste 1
         </NewProgIcon>
-        <NewProgIcon id="notePad1" imgSrc="/images/icons/notePad.png">
+        <NewProgIcon id="notePad1" imgSrc="/wondowsXp_React/images/icons/notePad.png">
           Anotação teste 2
         </NewProgIcon>
       
@@ -240,18 +240,18 @@ const App = () => {
                 title="Explorer" 
                 type="itemIniciar" 
                 id="explorer" 
-                imgSrc="/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
+                imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
                 <NewProgIcon 
                 title="Explorer" 
                 type="itemIniciar" 
                 id="explorer" 
-                imgSrc="/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
+                imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
                 <Separador />
                 <NewProgIcon 
                 title="Explorer" 
                 type="itemIniciar" 
                 id="explorer" 
-                imgSrc="/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
+                imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
               </ul>
             </div>
             <div id="conteudoIniciarDir">
@@ -260,7 +260,7 @@ const App = () => {
                 title="Explorer" 
                 type="itemIniciar" 
                 id="explorer" 
-                imgSrc="/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
+                imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">Internet Explorer</NewProgIcon>
               </ul>
             </div>
           </div>
@@ -271,7 +271,7 @@ const App = () => {
         <div id="barraTarefas">
             {/* Botão do menu inicar */}
             <div id="btnIniciar" onClick={toggleMenuIniciar}>
-                <img src="/images/icons/Windows-icon.png" alt="inicar"/>
+                <img src="/wondowsXp_React/images/icons/Windows-icon.png" alt="inicar"/>
                 <span>Iniciar</span>
                 {/* Iniciar */}
             </div>
@@ -282,7 +282,7 @@ const App = () => {
                   title="Explorer" 
                   type="itemTarefas" 
                   id="explorer" 
-                  imgSrc="/images/icons/internet-explorer-8.png"
+                  imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png"
                 >
                   Internet Explorer
               </NewProgIcon>
@@ -290,13 +290,13 @@ const App = () => {
 
             <div id="ferramentas">
                 <div className="ferramenta">
-                    <img src="/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
+                    <img src="/wondowsXp_React/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
                 </div>
                 <div className="ferramenta">
-                    <img src="/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
+                    <img src="/wondowsXp_React/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
                 </div>
                 <div className="ferramenta">
-                    <img src="/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
+                    <img src="/wondowsXp_React/images/icons/ModernXP-03-System-Lock-icon.png" alt="lock"/>
                 </div>
                 <div className="ferramenta" id="relogio">
                     16:12
