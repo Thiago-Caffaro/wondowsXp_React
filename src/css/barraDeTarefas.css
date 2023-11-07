@@ -1,0 +1,120 @@
+#barraTarefas{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--azul) 0%,
+      var(--azul-claro) 9%,
+      var(--azul) 18%,
+      var(--azul) 92%,
+      #333 100%
+    )
+    center/cover no-repeat;
+    z-index: 995;
+
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+#btnIniciar{
+    height: 100%;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+
+    border: none;
+    background: linear-gradient(
+      to bottom,
+      #3d973d 0%,
+      #6faf72 9%,
+      #3d973d 18%,
+      #3d973d 92%,
+      #666 100%
+    );
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #003d00;
+    margin-right:8px;
+}
+#btnIniciar>img{
+    height: 80%;
+}
+#btnIniciar:hover {
+    background: linear-gradient(
+      to bottom,
+      #3d973d 0%,
+      #6faf72 9%,
+      #3d973d 18%,
+      #37d437 92%,
+      #666 100%
+    );
+  }
+#progTarefas{
+    height: 40px;
+    width: 100%;
+    margin: 10px;
+
+    
+
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+#progTarefas>.prog{
+    height: 50%;
+    margin-right: 15px;
+    padding-right: 12px;
+    max-width: 150px;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    background-color: rgb(60, 129, 243);
+    box-shadow: rgba(0, 0, 0, 0.3) -1px 0px inset, rgba(255, 255, 255, 0.2) 1px 1px 1px inset;
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}#progTarefas>.prog>span{
+    margin-left: 8px;
+    font-size: 15px;
+    display: inline-block;
+}
+#progTarefas>.prog>img{
+    height: 120%;
+}
+
+#ferramentas{
+    background: linear-gradient(
+    to bottom,
+    #0fadf4 0%,
+    #0fadf4 9%,
+    #108ae5 18%,
+    #108ae5 92%,
+    #666 100%
+  );
+
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.ferramenta{
+    display: flex;
+    align-items: center;
+    margin: 2px;
+
+    cursor: pointer;
+}
+.ferramenta>img{
+    height: 30px;
+}
+#relogio{
+    color: #FFFFFF;
+    margin: 8px;
+}

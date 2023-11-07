@@ -1,0 +1,33 @@
+
+#desktop{
+    height: calc(100% - 50px);
+    width: 100%;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background-image: url(/images/xpwallpaper.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+}
+#desktop>.prog{
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+}
+#desktop>.prog:hover{
+    background-color: rgba(225, 225, 225, 0.398);
+}
+#desktop>.prog.selected:hover{
+    background-color: #0b60ff51;
+}
+#desktop>.prog>span{
+    color: aliceblue;
+}
+
