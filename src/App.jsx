@@ -1,3 +1,8 @@
+// git add .
+// git commit -m "Adicionado um comentario de exemplo"
+// git push
+// npm run deploy
+
 import React, { useState, useRef } from 'react';
 import Draggable from 'react-draggable';
 
