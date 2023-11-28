@@ -1,0 +1,32 @@
+{
+  "hash": "3997d8e2",
+  "browserHash": "9919aebe",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "5a998f22",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "adde00c0",
+      "needsInterop": true
+    },
+    "react-draggable": {
+      "src": "../../node_modules/react-draggable/build/cjs/cjs.js",
+      "file": "react-draggable.js",
+      "fileHash": "ab0f4d7d",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-3ADA7GBC": {
+      "file": "chunk-3ADA7GBC.js"
+    },
+    "chunk-SGI7XJUV": {
+      "file": "chunk-SGI7XJUV.js"
+    }
+  }
+}

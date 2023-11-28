@@ -3,10 +3,11 @@
 // git push
 // npm run deploy
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Draggable from 'react-draggable';
 
 import notePadContentFunc from './notePad';
+import newVideoFunc from './functions/NewVideo'
 
 import './css/barraDeTarefas.css';
 import './css/desktop.css';
@@ -14,6 +15,7 @@ import './css/menuIniciar.css';
 import './css/blankWindow.css';
 import './css/folder.css';
 import './css/notePad.css';
+import './css/video.css';
 
 function BlankWindow(props) {
   const [isMaximized, setIsMaximized] = useState(false);
@@ -41,6 +43,10 @@ function BlankWindow(props) {
     >
       <div className={`janela ${isMaximized ? 'maximized' : ''}`} data-status="restaurado">
         <div className="topBar">
+          <div className='title-bar'>
+            <img src="/wondowsXp_React/images/icons/questionMark.png"></img>
+            <h2>O programa que você clicou :)</h2>
+          </div>
         <div className="area-buttons">
           <button aria-label="Minimize" /*onClick={props.minimizeWindow}*/></button>
           <button aria-label="Maximize" ref={props.elementRef} onClick={toggleMaximize}></button>
@@ -60,15 +66,16 @@ const Separador = () => {
     <div className='separadorItemIniciar'></div>
   );
 }
+console.log("teste")
+
 const App = () => {
   const elementRef = useRef(null);
   const [isBlankWindowOpen, setBlankWindowOpen] = useState(false);
   const [isMenuIniciarOpen, setMenuIniciarOpen] = useState(false); // Estado para controlar a visibilidade do menu Iniciar
   const [content, setContent] = useState('Conteúdo Padrão'); // Estado para controlar o conteúdo da janela body
-  const [progColor, setProgColor] = useState('transparent');
+  const [progColor, setProgColor] = useState({});
   const [programaSelecionado, setProgramaSelecionado] = useState(null);
   const [activeWindowZIndex, setActiveWindowZIndex] = useState(1);
-
 
 
   const handleSingleClick = (id) => {
@@ -120,7 +127,8 @@ const App = () => {
       return (
         <div className={`prog ${isSelected ? 'selected' : ''}`} 
           id={props.id} 
-          style={{ backgroundColor: progColor[props.id]}} 
+          style={{ backgroundColor: progColor[props.id] || 'transparent'}}
+
           onClick={() => switchProg(props.id)} 
 
         >
@@ -137,8 +145,16 @@ const App = () => {
     updateContent(id);
     setActiveWindowZIndex(activeWindowZIndex + 1);
   }
-
-  
+  useEffect(() => {
+    const spans = document.querySelectorAll('span');
+    for (let i = 0; i < spans.length; i++) {
+      if (spans[i].textContent.length > 10) {
+        const stringList = spans[i].textContent.split("");
+        const shortWord = stringList.slice(0, 15).join("") + "...";
+        spans[i].textContent = shortWord;
+      }
+    }
+  }, []);
 
   const updateContent = (id) => {
     var explorerContent = 
@@ -162,12 +178,24 @@ const App = () => {
         <img src='/wondowsXp_React/images/side.png'></img>
       </div>
       <div id='bloco'>
-      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
-        Internet Explorer
+      <NewProgIcon id="video1" imgSrc="/wondowsXp_React/images/icons/player.png">
+          15 Sorting Algorithms.mp4
       </NewProgIcon>
-      <NewProgIcon type="itemIniciar" id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
-        Internet Explorer
+      <NewProgIcon id="video0" imgSrc="/wondowsXp_React/images/icons/player.png">
+          10 FORBIDDEN Sorting Algorithms.mp4
       </NewProgIcon>
+      <NewProgIcon id="video7" imgSrc="/wondowsXp_React/images/icons/player.png">
+        How to Program the TI 84 Plus CE with Quadratic Formula.mp4
+      </NewProgIcon>
+      <NewProgIcon id="video10" imgSrc="/wondowsXp_React/images/icons/player.png">
+        Running “Hello World!” in 10 VISUAL Programming Languages!.mp4
+      </NewProgIcon>
+      <NewProgIcon id="video6" imgSrc="/wondowsXp_React/images/icons/player.png">
+        Feynman-_what differs physics from mathematics_.mp4
+      </NewProgIcon>
+      <NewProgIcon id="video3" imgSrc="/wondowsXp_React/images/icons/player.png">
+         Calculus_Trailer_.mp4
+       </NewProgIcon>
       </div>
     </div>
     ;
@@ -181,6 +209,8 @@ const App = () => {
       setContent(cmdContent);
     } else if (id === 'folder') {
       setContent(folderContent);
+    } else if (id.includes('video')) {//checa se na id do elemento, exite a palavra notePad (os ids desse elemento são por exemplo "video1")
+      setContent(newVideoFunc(id));
     } else if (id.includes('notePad')) {//checa se na id do elemento, exite a palavra notePad (os ids desse elemento são por exemplo "notePad1")
       setContent(notePadContentFunc(id));
     } else {
@@ -191,29 +221,92 @@ const App = () => {
   const toggleMenuIniciar = () => {
     setMenuIniciarOpen(!isMenuIniciarOpen);
   };
+  
+  const criarPastas = (quantidade) => {
+    const novosIcones = [];
+    for (let i = 0; i < quantidade; i++) {
+      const novoIcone = (
+        <NewProgIcon
+          id={"folder"}
+          imgSrc="/wondowsXp_React/images/icons/folder.png"
+        >
+          Matemática Cap{i}
+        </NewProgIcon>
+      );
+      novosIcones.push(novoIcone);
+    }
+    return novosIcones;
+  };
+  const [desktopIcons, setDesktopIcons] = useState([
+        // ícones iniciais
+        <NewProgIcon id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
+          OutsideNet Searcher
+        </NewProgIcon>,
+        <NewProgIcon id="pc" imgSrc="/wondowsXp_React/images/icons/pc.png">
+          Pc
+        </NewProgIcon>,
+        <NewProgIcon id="cmd" imgSrc="/wondowsXp_React/images/icons/cmd.png">
+          CMD
+        </NewProgIcon>,
+        <NewProgIcon id="notePad0" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Henry.txt
+        </NewProgIcon>,
+        <NewProgIcon id="video2" imgSrc="/wondowsXp_React/images/icons/player.png">
+        16 Sorts-Color Circle.mp4
+        </NewProgIcon>,
+        <NewProgIcon id="notePad1" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Liam.txt
+        </NewProgIcon>,
+        <NewProgIcon id="notePad2" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Lori.txt
+        </NewProgIcon>,
+        <NewProgIcon id="notePad3" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Jason.txt
+        </NewProgIcon>,
+        <NewProgIcon id="video8" imgSrc="/wondowsXp_React/images/icons/player.png">
+          J.Robert Oppenheimer.mp4
+        </NewProgIcon>,
+        <NewProgIcon id="video9" imgSrc="/wondowsXp_React/images/icons/player.png">
+          Math is Art.mp4
+        </NewProgIcon>,
+        <NewProgIcon id="notePad4" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Pais.txt
+        </NewProgIcon>,
+        <NewProgIcon id="notePad5" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Dani.txt
+        </NewProgIcon>,
+        <NewProgIcon id="notePad6" imgSrc="/wondowsXp_React/images/icons/notePad.png">
+          Senhas.txt
+        </NewProgIcon>,
+          <NewProgIcon id="video4" imgSrc="/wondowsXp_React/images/icons/player.png">
+          A Cruel Angle's Thesis.mp4
+        </NewProgIcon>,
+          <NewProgIcon id="video5" imgSrc="/wondowsXp_React/images/icons/player.png">
+          Ellipse-billiard simulation.mp4
+        </NewProgIcon>,
 
+                       
+  ]);  
+  
+  const adicionarPastas = (quantidade) => {
+    setDesktopIcons((prevIcons) => {
+      const novosIcones = criarPastas(quantidade);
+      const posicaoAleatoria = Math.floor(Math.random() * prevIcons.length);
+      const novoArray = [...prevIcons];
+      novoArray.splice(posicaoAleatoria, 0, ...novosIcones);
+      return novoArray;
+    });
+  };
+
+  useEffect(() => {
+    adicionarPastas(230);
+  }, []);
   return (
     <div id="wondos_vista">
       <div id="desktop">
-        <NewProgIcon id="explorer" imgSrc="/wondowsXp_React/images/icons/internet-explorer-8.png">
-          OutsideNet Searcher
-        </NewProgIcon>
-        <NewProgIcon id="pc" imgSrc="/wondowsXp_React/images/icons/pc.png">
-          Pc
-        </NewProgIcon>
-        <NewProgIcon id="cmd" imgSrc="/wondowsXp_React/images/icons/cmd.png">
-          CMD
-        </NewProgIcon>
-        <NewProgIcon id="folder" imgSrc="/wondowsXp_React/images/icons/folder.png">
-          Pasta teste
-        </NewProgIcon>
-        <NewProgIcon id="notePad0" imgSrc="/wondowsXp_React/images/icons/notePad.png">
-          Anotação teste 1
-        </NewProgIcon>
-        <NewProgIcon id="notePad1" imgSrc="/wondowsXp_React/images/icons/notePad.png">
-          Anotação teste 2
-        </NewProgIcon>
-      
+      {desktopIcons.map((icone, index) => (
+        <React.Fragment key={index}>{icone}</React.Fragment>
+      ))}
       {isBlankWindowOpen && (
         
         <BlankWindow
@@ -310,5 +403,6 @@ const App = () => {
          </div>
          </div>
   );
-};
+
+}; 
 export default App;
