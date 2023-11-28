@@ -8,7 +8,10 @@ a{
 }
 
 body {
-    background-color: black;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
     padding-bottom: 50px;
 }
 .hide{
@@ -75,4 +78,21 @@ td, th{
 #separador{
     height: 1000px;
     width: 1px;
+}
+#caution{
+    display: none;
+    width: 1000000000000000000000px;
+    height: 100%;
+}
+
+
+.blink{
+    animation: blink 0.1s linear infinite;
+}
+@keyframes blink{
+0%{opacity: 0;}
+20%{opacity: .1;}
+60%{opacity: 0;}
+80%{opacity: .5;}
+100%{opacity: 1;}
 }
